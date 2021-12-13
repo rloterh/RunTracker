@@ -1,12 +1,13 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Feed from './components/Feed';
 
 const App = () => (
-
-  <div className="App">
-    <>
-      Run Tracker
-    </>
-  </div>
+  <Router>
+    <Routes>
+      <Route path="/" element={<Feed />} />
+    </Routes>
+  </Router>
 );
 
 export default App;
