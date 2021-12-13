@@ -1,14 +1,14 @@
 import getInitialFeed from '../../utilities/getData';
 
-//Initial State
+// Initial State
 const initialState = {
   feed: '',
 };
 
-//Action
+// Action
 export const GET_FEED_REQUEST = 'feed/GET_FEED_REQUEST';
 
-//Action Creators
+// Action Creators
 export const getFeed = async (dispatch) => {
   const feed = await getInitialFeed();
   return dispatch({
@@ -17,15 +17,15 @@ export const getFeed = async (dispatch) => {
   });
 };
 
-//Reducer
+// Reducer
 const feedReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_FEED_REQUEST:
       return { ...state, feed: action.payload };
 
-      default:
-        return state;
+    default:
+      return state;
   }
-}
+};
 
 export default feedReducer;
