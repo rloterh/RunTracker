@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFeed } from '../redux/Feed/feed';
 
 const Feed = () => {
+  const feed = useSelector((state) => state.feeds.feed);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getFeed);
+  }, []);
+
   return (
     <div>
-      Feed
+      <h2>{feed}</h2>
     </div>
   );
 };
