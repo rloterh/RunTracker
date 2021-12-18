@@ -1,11 +1,7 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import feedReducer from './feed/feed';
+import reducers from '.';
 
-const reducer = combineReducers({
-  feeds: feedReducer,
-});
-
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(reducers, applyMiddleware(thunk));
 
 export default store;
