@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import { getSprint } from '../actions';
 
 const RecordSprint = () => {
@@ -57,19 +59,119 @@ const RecordSprint = () => {
   const secondsBar = useRef(null);
   const distanceBar = useRef(null);
 
+  const recordOne = () => {
+    targetInput.current.classList = 'block';
+    hoursInput.current.classList = 'hidden';
+    secondButtons.current.classList = 'hidden';
+    firstButtons.current.classList = 'bg-gray-100 rounded-lg p-2';
+    hoursInput.current.classList = 'hidden';
+    hourBar.current.classList = 'hidden';
+    setTitle('What\'s your sprint target?');
+  };
+
+  const recordTwo = () => {
+    targetInput.current.classList = 'hidden';
+    hoursInput.current.classList = 'block';
+    secondButtons.current.classList = 'flex bg-gray-100 rounded-lg p-2';
+    firstButtons.current.classList = 'hidden';
+    thirdButtons.current.classList = 'hidden';
+    minsInput.current.classList = 'hidden';
+    minuteBar.current.classList = 'hidden';
+    hourBar.current.classList = 'flex w-3/4';
+    setTitle('Hours');
+  };
+
+  const recordThree = () => {
+    hoursInput.current.classList = 'hidden';
+    minsInput.current.classList = 'block';
+    secondButtons.current.classList = 'hidden';
+    thirdButtons.current.classList = 'flex bg-gray-100 rounded-lg p-2';
+    fourthButtons.current.classList = 'hidden';
+    secondsInput.current.classList = 'hidden';
+    minuteBar.current.classList = 'block w-3/4';
+    hourBar.current.classList = 'hidden';
+    secondsBar.current.classList = 'hidden';
+    setTitle('Minutes');
+  };
+
+  const recordFour = () => {
+    minsInput.current.classList = 'hidden';
+    secondsInput.current.classList = 'block';
+    thirdButtons.current.classList = 'hidden';
+    fourthButtons.current.classList = 'flex bg-gray-100 rounded-lg p-2';
+    fifthButtons.current.classList = 'hidden';
+    distanceInput.current.classList = 'hidden';
+    minuteBar.current.classList = 'hidden';
+    secondsBar.current.classList = 'block w-3/4';
+    distanceBar.current.classList = 'hidden';
+    setTitle('Seconds');
+  };
+  
+  const recordFive = () => {
+    secondsInput.current.classList = 'hidden';
+    distanceInput.current.classList = 'block';
+    fourthButtons.current.classList = 'hidden';
+    fifthButtons.current.classList = 'flex bg-gray-100 rounded-lg p-2';
+    sixthButtons.current.classList = 'hidden';
+    remarksInput.current.classList = 'hidden';
+    secondsBar.current.classList = 'hidden';
+    distanceBar.current.classList = 'block w-3/4';
+    setTitle('Distance covered');
+  };
+
+  const recordSix = () => {
+    distanceInput.current.classList = 'hidden';
+    remarksInput.current.classList = 'block';
+    effortInput.current.classList = 'hidden';
+    fifthButtons.current.classList = 'hidden';
+    sixthButtons.current.classList = 'flex bg-gray-100 rounded-lg p-2';
+    distanceBar.current.classList = 'hidden';
+    setTitle('Remarks');
+  };
+
   return (
-    <div>
-      <div>
-        <h1>Record Sprint</h1>
+    <div className="text-center h-full">
+      <div className="p-4 bg-lightblue text-white font-sans w-full">
+        <h1 className="text-2xl font-black">Record Sprint</h1>
       </div>
-      <div>
+      <div className="p-4 border-b-2">
         <div>
-          <h3>{title}</h3>
+          <h3 className="font-bold text-gray-600 font-sans">{title}</h3>
         </div>
       </div>
-      <div>
-     
-        <form onSubmit={onSubmit}>
+      <div className="flex flex-col items-center justify-center space-y-4">
+
+        <div className="flex flex-col items-center justify-center py-10 font-sans">
+          <section ref={hourBar} className="hidden w-3/4">
+            <CircularProgressbar
+              value={hoursValue}
+              text={`${hoursValue} h`}
+              maxValue={24}
+            />
+          </section>
+          <section ref={minuteBar} className="hidden w-3/4">
+            <CircularProgressbar
+              value={minutesValue}
+              text={`${minutesValue} mins`}
+              maxValue={60}
+            />
+          </section>
+          <section ref={secondsBar} className="hidden w-3/4">
+            <CircularProgressbar
+              value={secondsValue}
+              text={`${secondsValue} s`}
+              maxValue={60}
+            />
+          </section>
+          <section ref={distanceBar} className="hidden w-3/4">
+            <CircularProgressbar
+              value={distanceValue}
+              text={`${distanceValue} m`}
+              maxValue={targetValue}
+            />
+          </section>
+        </div>
+        <form onSubmit={onSubmit} className="space-y-10 absolute bottom-20 font-sans">
           <select
             ref={targetInput}
             size="2"
@@ -151,8 +253,8 @@ const RecordSprint = () => {
             className="hidden"
             // value={effortValue}
           />
-  
-          <div ref={firstButtons}>
+
+          <div ref={firstButtons} className="bg-gray-100 rounded-lg p-2">
             <button
               type="button"
               onClick={() => recordTwo()}
