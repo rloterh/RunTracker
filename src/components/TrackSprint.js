@@ -3,16 +3,16 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { toast } from 'react-toastify';
 import { getSprint } from '../actions';
 
-const RecordSprint = () => {
+const TrackSprint = () => {
   const [targetValue, setTarget] = useState(100);
   const [hoursValue, setHours] = useState(0);
   const [minutesValue, setMinutes] = useState(0);
   const [secondsValue, setSeconds] = useState(0);
   const [distanceValue, setDistance] = useState(0);
   const [remarksValue, setRemarks] = useState('');
-  // const [effortValue, setEffort] = useState(0);
 
   const [title, setTitle] = useState('What\'s your sprint target?');
   const selectTarget = [100, 200, 500, 1000, 2000, 5000];
@@ -34,9 +34,9 @@ const RecordSprint = () => {
     });
 
     dispatch(getSprint());
+    toast.success(`${targetValue}m challenge recorded successfully`);
   };
 
-  // Inputs
   const targetInput = useRef(null);
   const hoursInput = useRef(null);
   const minsInput = useRef(null);
@@ -45,7 +45,6 @@ const RecordSprint = () => {
   const remarksInput = useRef(null);
   const effortInput = useRef(null);
 
-  // Buttons
   const firstButtons = useRef(null);
   const secondButtons = useRef(null);
   const thirdButtons = useRef(null);
@@ -53,7 +52,6 @@ const RecordSprint = () => {
   const fifthButtons = useRef(null);
   const sixthButtons = useRef(null);
 
-  // Progress bar
   const hourBar = useRef(null);
   const minuteBar = useRef(null);
   const secondsBar = useRef(null);
@@ -106,7 +104,6 @@ const RecordSprint = () => {
     distanceBar.current.classList = 'hidden';
     setTitle('Seconds');
   };
-  
   const recordFive = () => {
     secondsInput.current.classList = 'hidden';
     distanceInput.current.classList = 'block';
@@ -131,7 +128,7 @@ const RecordSprint = () => {
 
   return (
     <div className="text-center h-full">
-      <div className="p-4 bg-lightblue text-white font-sans w-full">
+      <div className="p-4 bg-blue text-white font-sans w-full">
         <h1 className="text-2xl font-black">Record Sprint</h1>
       </div>
       <div className="p-4 border-b-2">
@@ -171,6 +168,7 @@ const RecordSprint = () => {
             />
           </section>
         </div>
+
         <form onSubmit={onSubmit} className="space-y-10 absolute bottom-20 font-sans">
           <select
             ref={targetInput}
@@ -251,12 +249,12 @@ const RecordSprint = () => {
             type="hidden"
             name="effort"
             className="hidden"
-            // value={effortValue}
           />
 
           <div ref={firstButtons} className="bg-gray-100 rounded-lg p-2">
             <button
               type="button"
+              className="p-2 bg-green text-white w-full rounded-lg"
               onClick={() => recordTwo()}
             >
               Next
@@ -266,12 +264,14 @@ const RecordSprint = () => {
           <div ref={secondButtons} className="hidden">
             <button
               type="button"
+              className="p-3 rounded-lg text-gray-600 w-full"
               onClick={() => recordOne()}
             >
               Prev
             </button>
             <button
               type="button"
+              className="p-3 rounded-lg bg-green text-white w-full"
               onClick={() => recordThree()}
             >
               Next
@@ -281,26 +281,31 @@ const RecordSprint = () => {
           <div ref={thirdButtons} className="hidden">
             <button
               type="button"
+              className="p-3 text-grey-600 w-full text-gray-600"
               onClick={() => recordTwo()}
             >
               Prev
             </button>
             <button
               type="button"
+              className="p-3 bg-green text-white w-full rounded-lg"
               onClick={() => recordFour()}
             >
               Next
             </button>
           </div>
+
           <div ref={fourthButtons} className="hidden">
             <button
               type="button"
+              className="p-3 rounded-lg text-gray-600 w-full"
               onClick={() => recordThree()}
             >
               Prev
             </button>
             <button
               type="button"
+              className="p-3 bg-green text-white w-full rounded-lg"
               onClick={() => recordFive()}
             >
               Next
@@ -310,12 +315,14 @@ const RecordSprint = () => {
           <div ref={fifthButtons} className="hidden">
             <button
               type="button"
+              className="p-3 text-gray-600 w-full"
               onClick={() => recordFour()}
             >
               Prev
             </button>
             <button
               type="button"
+              className="p-3 bg-green text-white w-full rounded-lg"
               onClick={() => recordSix()}
             >
               Next
@@ -325,12 +332,14 @@ const RecordSprint = () => {
           <div ref={sixthButtons} className="hidden">
             <button
               type="button"
+              className="p-3 text-gray-600 w-full"
               onClick={() => recordFive()}
             >
               Prev
             </button>
             <button
               type="submit"
+              className="p-3 bg-lightgreen text-white w-full rounded-lg"
             >
               Submit
             </button>
@@ -341,4 +350,4 @@ const RecordSprint = () => {
   );
 };
 
-export default RecordSprint;
+export default TrackSprint;
