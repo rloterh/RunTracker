@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
 import { getSprint } from '../actions';
 
-const TrackSprint = () => {
+const RecordSprint = () => {
   const [targetValue, setTarget] = useState(100);
   const [hoursValue, setHours] = useState(0);
   const [minutesValue, setMinutes] = useState(0);
@@ -11,6 +11,9 @@ const TrackSprint = () => {
   const [distanceValue, setDistance] = useState(0);
   const [remarksValue, setRemarks] = useState('');
   // const [effortValue, setEffort] = useState(0);
+
+  const [title, setTitle] = useState('What\'s your sprint target?');
+  const selectTarget = [100, 200, 500, 1000, 2000, 5000];
 
   const dispatch = useDispatch();
 
@@ -27,13 +30,45 @@ const TrackSprint = () => {
       remarks: remarksValue,
       effort: effortValue,
     });
+
     dispatch(getSprint());
   };
+
+  // Inputs
+  const targetInput = useRef(null);
+  const hoursInput = useRef(null);
+  const minsInput = useRef(null);
+  const secondsInput = useRef(null);
+  const distanceInput = useRef(null);
+  const remarksInput = useRef(null);
+  const effortInput = useRef(null);
+
+  // Buttons
+  const firstButtons = useRef(null);
+  const secondButtons = useRef(null);
+  const thirdButtons = useRef(null);
+  const fourthButtons = useRef(null);
+  const fifthButtons = useRef(null);
+  const sixthButtons = useRef(null);
+
+  // Progress bar
+  const hourBar = useRef(null);
+  const minuteBar = useRef(null);
+  const secondsBar = useRef(null);
+  const distanceBar = useRef(null);
 
   return (
     <div>
       <div>
-
+        <h1>Record Sprint</h1>
+      </div>
+      <div>
+        <div>
+          <h3>{title}</h3>
+        </div>
+      </div>
+      <div>
+     
         <form onSubmit={onSubmit}>
           <select
             ref={targetInput}
@@ -43,6 +78,14 @@ const TrackSprint = () => {
             value={targetValue}
             onChange={e => setTarget(e.target.value)}
           >
+            {selectTarget.map(target => (
+              <option key={target} value={target}>
+                {target}
+                {' '}
+                metres
+                {' '}
+              </option>
+            ))}
           </select>
           <input
             ref={hoursInput}
@@ -108,11 +151,11 @@ const TrackSprint = () => {
             className="hidden"
             // value={effortValue}
           />
-
+  
           <div ref={firstButtons}>
             <button
               type="button"
-              onClick={() => goToSecondPage()}
+              onClick={() => recordTwo()}
             >
               Next
             </button>
@@ -121,43 +164,42 @@ const TrackSprint = () => {
           <div ref={secondButtons} className="hidden">
             <button
               type="button"
-              onClick={() => goToFirstPage()}
+              onClick={() => recordOne()}
             >
               Prev
             </button>
             <button
               type="button"
-              onClick={() => goToThirdPage()}
+              onClick={() => recordThree()}
             >
               Next
             </button>
           </div>
- 
+
           <div ref={thirdButtons} className="hidden">
             <button
               type="button"
-              onClick={() => goToSecondPage()}
+              onClick={() => recordTwo()}
             >
               Prev
             </button>
             <button
               type="button"
-              onClick={() => goToFourthPage()}
+              onClick={() => recordFour()}
             >
               Next
             </button>
           </div>
- 
           <div ref={fourthButtons} className="hidden">
             <button
               type="button"
-              onClick={() => goToThirdPage()}
+              onClick={() => recordThree()}
             >
               Prev
             </button>
             <button
               type="button"
-              onClick={() => goToFifthPage()}
+              onClick={() => recordFive()}
             >
               Next
             </button>
@@ -166,13 +208,13 @@ const TrackSprint = () => {
           <div ref={fifthButtons} className="hidden">
             <button
               type="button"
-              onClick={() => goToFourthPage()}
+              onClick={() => recordFour()}
             >
               Prev
             </button>
             <button
               type="button"
-              onClick={() => goToSixthPage()}
+              onClick={() => recordSix()}
             >
               Next
             </button>
@@ -181,7 +223,7 @@ const TrackSprint = () => {
           <div ref={sixthButtons} className="hidden">
             <button
               type="button"
-              onClick={() => goToFifthPage()}
+              onClick={() => recordFive()}
             >
               Prev
             </button>
@@ -197,4 +239,4 @@ const TrackSprint = () => {
   );
 };
 
-export default TrackSprint;
+export default RecordSprint;
