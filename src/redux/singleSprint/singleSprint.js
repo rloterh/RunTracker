@@ -1,28 +1,28 @@
-const initialState = {
+const defaultState = {
   loading: false,
   data: [],
-  error: '',
+  errorMsg: '',
 };
 
-const singleSprintReducer = (state = initialState, action) => {
+const singleSprintReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case 'GET_SINGLE_SPRINT_REQUEST':
+    case 'FETCH_SINGLE_SPRINT_REQUEST':
       return {
         ...state,
         loading: true,
-        error: '',
+        errorMsg: '',
       };
-    case 'GET_SINGLE_SPRINT_FAIL':
+    case 'FETCH_SINGLE_SPRINT_FAIL':
       return {
         ...state,
         loading: false,
-        error: 'Unable to retrieve sprint data',
+        errorMsg: 'Unable to retrieve sprint data',
       };
-    case 'GET_SINGLE_SPRINT_SUCCESS':
+    case 'FETCH_SINGLE_SPRINT_SUCCESS':
       return {
         ...state,
         loading: false,
-        error: '',
+        errorMsg: '',
         data: action.payload,
       };
     default:
