@@ -1,12 +1,13 @@
 import React from 'react';
 import Footer from './Footer';
+import Endpoints from '../endpoints';
 
 const Home = () => (
   <>
-    <div>
-      Main content
-    </div>
-    <Footer />
+    <main>
+      <Endpoints />
+    </main>
+    <Footer home="/" feed="/feed" progress="/progress" settings="/settings" />
   </>
 );
 

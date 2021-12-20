@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { getSprint } from '../actions';
+import { fetchSprint } from '../actions';
 
 const UpdateSprint = () => {
-  const singleSprint = useSelector(state => state.singleSprint.data);
+  const singleSprint = useSelector((state) => state.singleSprint.data);
   const [targetValue, setName] = useState(singleSprint[0].target);
   const [hoursValue, setHours] = useState(singleSprint[0].hours);
   const [minutesValue, setMinutes] = useState(singleSprint[0].minutes);
@@ -15,7 +15,7 @@ const UpdateSprint = () => {
 
   const dispatch = useDispatch();
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     const effortValue = ((distanceValue / targetValue) * 100);
 
@@ -32,29 +32,29 @@ const UpdateSprint = () => {
       },
     );
 
-    dispatch(getSprint());
+    dispatch(fetchSprint());
     toast.success(`You successfully updated ${targetValue}`);
   };
 
   return (
     <div className="h-screen pb-20">
-      <div className="p-4 bg-blue text-white font-sans w-full text-center">
-        <h1 className="text-2xl">Edit</h1>
+      <div className="p-4 bg-sblue text-white font-sans w-full text-center">
+        <h1 className="text-2xl font-black">Update Record</h1>
       </div>
       <section>
         <form
           onSubmit={onSubmit}
-          className="flex flex-col px-16 space-y-1 pt-2 font-sans"
+          className="font-bold flex flex-col px-16 space-y-1 pt-2 font-sans text-gray-400"
         >
           <div>
-            <div>Name</div>
+            <div>Target</div>
             <input
               type="number"
               name="target"
               placeholder="target"
               className="w-full"
               value={targetValue}
-              onChange={e => setName(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div>
@@ -65,7 +65,7 @@ const UpdateSprint = () => {
               placeholder="hours"
               className="w-full"
               value={hoursValue}
-              onChange={e => setHours(e.target.value)}
+              onChange={(e) => setHours(e.target.value)}
             />
           </div>
           <div>
@@ -76,7 +76,7 @@ const UpdateSprint = () => {
               placeholder="minutes"
               className="w-full"
               value={minutesValue}
-              onChange={e => setMinutes(e.target.value)}
+              onChange={(e) => setMinutes(e.target.value)}
             />
           </div>
           <div>
@@ -87,7 +87,7 @@ const UpdateSprint = () => {
               placeholder="seconds"
               className="w-full"
               value={secondsValue}
-              onChange={e => setSeconds(e.target.value)}
+              onChange={(e) => setSeconds(e.target.value)}
             />
           </div>
           <div>
@@ -98,7 +98,7 @@ const UpdateSprint = () => {
               className="w-full"
               placeholder="distance"
               value={distanceValue}
-              onChange={e => setDistance(e.target.value)}
+              onChange={(e) => setDistance(e.target.value)}
             />
           </div>
           <div>
@@ -111,12 +111,12 @@ const UpdateSprint = () => {
               rows="3"
               value={remarksValue}
               required
-              onChange={e => setRemarks(e.target.value)}
+              onChange={(e) => setRemarks(e.target.value)}
             />
           </div>
           <button
             type="submit"
-            className=" bg-green py-4 px-2 mt-5 rounded-md"
+            className=" bg-sgreen py-4 px-2 mt-5 rounded-md text-white"
           >
             Submit
           </button>

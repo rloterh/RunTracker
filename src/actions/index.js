@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const setUser = (payload) => ({ type: 'SET_USER', payload });
 
@@ -9,10 +10,11 @@ export const getUser = (userInfo) => (dispatch) => {
     .post('http://localhost:3000/api/v1/login', userInfo)
     .then((response) => response)
     .then((data) => {
+      if (data.data.error) return toast.error('Invalid user');
       localStorage.setItem('token', data.token);
-      return dispatch(setUser(data.data));
+      return dispatch(setUser(data.data)) && toast.success(`Hello ${data.data.user.username}!`);
     })
-    .catch((error) => error);
+    .catch((err) => err);
 };
 
 export const signUserUp = (userInfo) => (dispatch) => {
@@ -21,42 +23,44 @@ export const signUserUp = (userInfo) => (dispatch) => {
     .then((response) => response)
     .then((data) => {
       localStorage.setItem('token', data.token);
-      return dispatch(setUser(data.data));
+
+      if (data.data.error) return toast.error('Error, try again');
+      return dispatch(setUser(data.data)) && toast.success('Signup successful');
     })
-    .catch((error) => error);
+    .catch((err) => err);
 };
 
-export const getSprint = () => async (dispatch) => {
+export const fetchSprint = () => async (dispatch) => {
   try {
     dispatch({
-      type: 'GET_SPRINT_REQUEST',
+      type: 'FETCH_SPRINT_REQUEST',
     });
     const response = await axios.get('http://localhost:3000/api/v1/sprints');
 
     dispatch({
-      type: 'GET_SPRINT_SUCCESS',
+      type: 'FETCH_SPRINT_SUCCESS',
       payload: response.data,
     });
   } catch (e) {
     dispatch({
-      type: 'LISTS_FAIL',
+      type: 'STOCK_LIST_FAIL',
     });
   }
 };
 
-export const getSingleSprint = (sprint) => async (dispatch) => {
+export const fetchsingleSprint = (sprint) => async (dispatch) => {
   try {
     dispatch({
-      type: 'GET_SINGLE_SPRINT_REQUEST',
+      type: 'FETCH_SINGLE_SPRINT_REQUEST',
     });
 
     dispatch({
-      type: 'GET_SINGLE_SPRINT_REQUEST',
+      type: 'FETCH_SINGLE_SPRINT_SUCCESS',
       payload: [sprint],
     });
   } catch (e) {
     dispatch({
-      type: 'SINGLE_LIST_FAIL',
+      type: 'STOCK_SINGLE_LIST_FAIL',
     });
   }
 };

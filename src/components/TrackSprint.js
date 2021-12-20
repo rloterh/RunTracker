@@ -4,7 +4,7 @@ import axios from 'axios';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { toast } from 'react-toastify';
-import { getSprint } from '../actions';
+import { fetchSprint } from '../actions/index';
 
 const TrackSprint = () => {
   const [targetValue, setTarget] = useState(100);
@@ -19,7 +19,7 @@ const TrackSprint = () => {
 
   const dispatch = useDispatch();
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     const effortValue = ((distanceValue / targetValue) * 100);
 
@@ -33,7 +33,7 @@ const TrackSprint = () => {
       effort: effortValue,
     });
 
-    dispatch(getSprint());
+    dispatch(fetchSprint());
     toast.success(`${targetValue}m challenge recorded successfully`);
   };
 
@@ -61,7 +61,7 @@ const TrackSprint = () => {
     targetInput.current.classList = 'block';
     hoursInput.current.classList = 'hidden';
     secondButtons.current.classList = 'hidden';
-    firstButtons.current.classList = 'bg-gray-100 rounded-lg p-2';
+    firstButtons.current.classList = 'bg-gray-100';
     hoursInput.current.classList = 'hidden';
     hourBar.current.classList = 'hidden';
     setTitle('What\'s your sprint target?');
@@ -69,8 +69,8 @@ const TrackSprint = () => {
 
   const recordTwo = () => {
     targetInput.current.classList = 'hidden';
-    hoursInput.current.classList = 'block';
-    secondButtons.current.classList = 'flex bg-gray-100 rounded-lg p-2';
+    hoursInput.current.classList = 'block focus:outline-none w-full';
+    secondButtons.current.classList = 'flex bg-gray-100 w=full';
     firstButtons.current.classList = 'hidden';
     thirdButtons.current.classList = 'hidden';
     minsInput.current.classList = 'hidden';
@@ -81,9 +81,9 @@ const TrackSprint = () => {
 
   const recordThree = () => {
     hoursInput.current.classList = 'hidden';
-    minsInput.current.classList = 'block';
+    minsInput.current.classList = 'block focus:outline-none w-full';
     secondButtons.current.classList = 'hidden';
-    thirdButtons.current.classList = 'flex bg-gray-100 rounded-lg p-2';
+    thirdButtons.current.classList = 'flex bg-gray-100 w-full';
     fourthButtons.current.classList = 'hidden';
     secondsInput.current.classList = 'hidden';
     minuteBar.current.classList = 'block w-3/4';
@@ -94,9 +94,9 @@ const TrackSprint = () => {
 
   const recordFour = () => {
     minsInput.current.classList = 'hidden';
-    secondsInput.current.classList = 'block';
+    secondsInput.current.classList = 'block focus:outline-none w-full';
     thirdButtons.current.classList = 'hidden';
-    fourthButtons.current.classList = 'flex bg-gray-100 rounded-lg p-2';
+    fourthButtons.current.classList = 'flex bg-gray-100 w-full';
     fifthButtons.current.classList = 'hidden';
     distanceInput.current.classList = 'hidden';
     minuteBar.current.classList = 'hidden';
@@ -106,9 +106,9 @@ const TrackSprint = () => {
   };
   const recordFive = () => {
     secondsInput.current.classList = 'hidden';
-    distanceInput.current.classList = 'block';
+    distanceInput.current.classList = 'block focus:outline-none w-full';
     fourthButtons.current.classList = 'hidden';
-    fifthButtons.current.classList = 'flex bg-gray-100 rounded-lg p-2';
+    fifthButtons.current.classList = 'flex bg-gray-100 w-full';
     sixthButtons.current.classList = 'hidden';
     remarksInput.current.classList = 'hidden';
     secondsBar.current.classList = 'hidden';
@@ -118,17 +118,17 @@ const TrackSprint = () => {
 
   const recordSix = () => {
     distanceInput.current.classList = 'hidden';
-    remarksInput.current.classList = 'block';
+    remarksInput.current.classList = 'block focus:outline-none w-full';
     effortInput.current.classList = 'hidden';
     fifthButtons.current.classList = 'hidden';
-    sixthButtons.current.classList = 'flex bg-gray-100 rounded-lg p-2';
+    sixthButtons.current.classList = 'flex bg-gray-100';
     distanceBar.current.classList = 'hidden';
     setTitle('Remarks');
   };
 
   return (
     <div className="text-center h-full">
-      <div className="p-4 bg-blue text-white font-sans w-full">
+      <div className="p-4 bg-sblue text-white font-sans w-full">
         <h1 className="text-2xl font-black">Record Sprint</h1>
       </div>
       <div className="p-4 border-b-2">
@@ -175,10 +175,11 @@ const TrackSprint = () => {
             size="2"
             type="number"
             name="target"
+            className="focus:outline-none w-full"
             value={targetValue}
-            onChange={e => setTarget(e.target.value)}
+            onChange={(e) => setTarget(e.target.value)}
           >
-            {selectTarget.map(target => (
+            {selectTarget.map((target) => (
               <option key={target} value={target}>
                 {target}
                 {' '}
@@ -193,10 +194,9 @@ const TrackSprint = () => {
             name="hours"
             min="0"
             max="24"
-            placeholder="hours"
             className="hidden"
             value={hoursValue}
-            onChange={e => setHours(e.target.value)}
+            onChange={(e) => setHours(e.target.value)}
           />
           <input
             ref={minsInput}
@@ -207,7 +207,7 @@ const TrackSprint = () => {
             placeholder="minutes"
             value={minutesValue}
             className="hidden"
-            onChange={e => setMinutes(e.target.value)}
+            onChange={(e) => setMinutes(e.target.value)}
           />
           <input
             ref={secondsInput}
@@ -218,7 +218,7 @@ const TrackSprint = () => {
             placeholder="seconds"
             className="hidden"
             value={secondsValue}
-            onChange={e => setSeconds(e.target.value)}
+            onChange={(e) => setSeconds(e.target.value)}
           />
           <input
             ref={distanceInput}
@@ -229,7 +229,7 @@ const TrackSprint = () => {
             placeholder="distance"
             className="hidden"
             value={distanceValue}
-            onChange={e => setDistance(e.target.value)}
+            onChange={(e) => setDistance(e.target.value)}
           />
           <textarea
             ref={remarksInput}
@@ -242,7 +242,7 @@ const TrackSprint = () => {
             rows="6"
             value={remarksValue}
             required
-            onChange={e => setRemarks(e.target.value)}
+            onChange={(e) => setRemarks(e.target.value)}
           />
           <input
             ref={effortInput}
@@ -251,10 +251,10 @@ const TrackSprint = () => {
             className="hidden"
           />
 
-          <div ref={firstButtons} className="bg-gray-100 rounded-lg p-2">
+          <div ref={firstButtons} className="bg-gray-100 w-full">
             <button
               type="button"
-              className="p-2 bg-green text-white w-full rounded-lg"
+              className="px-10 py-3 bg-sgreen text-white w-full"
               onClick={() => recordTwo()}
             >
               Next
@@ -264,14 +264,14 @@ const TrackSprint = () => {
           <div ref={secondButtons} className="hidden">
             <button
               type="button"
-              className="p-3 rounded-lg text-gray-600 w-full"
+              className="px-10 py-3 text-gray-600 w-full"
               onClick={() => recordOne()}
             >
               Prev
             </button>
             <button
               type="button"
-              className="p-3 rounded-lg bg-green text-white w-full"
+              className="px-10 py-3 bg-sgreen text-white w-full"
               onClick={() => recordThree()}
             >
               Next
@@ -281,14 +281,14 @@ const TrackSprint = () => {
           <div ref={thirdButtons} className="hidden">
             <button
               type="button"
-              className="p-3 text-grey-600 w-full text-gray-600"
+              className="px-10 py-3 text-grey-600 w-full text-gray-600"
               onClick={() => recordTwo()}
             >
               Prev
             </button>
             <button
               type="button"
-              className="p-3 bg-green text-white w-full rounded-lg"
+              className="px-10 py-3 bg-sgreen text-white w-full"
               onClick={() => recordFour()}
             >
               Next
@@ -298,14 +298,14 @@ const TrackSprint = () => {
           <div ref={fourthButtons} className="hidden">
             <button
               type="button"
-              className="p-3 rounded-lg text-gray-600 w-full"
+              className="px-10 py-3 text-gray-600 w-full"
               onClick={() => recordThree()}
             >
               Prev
             </button>
             <button
               type="button"
-              className="p-3 bg-green text-white w-full rounded-lg"
+              className="px-10 py-3 bg-sgreen text-white w-full"
               onClick={() => recordFive()}
             >
               Next
@@ -315,14 +315,14 @@ const TrackSprint = () => {
           <div ref={fifthButtons} className="hidden">
             <button
               type="button"
-              className="p-3 text-gray-600 w-full"
+              className="px-10 py-3 text-gray-600 w-full"
               onClick={() => recordFour()}
             >
               Prev
             </button>
             <button
               type="button"
-              className="p-3 bg-green text-white w-full rounded-lg"
+              className="px-10 py-3 bg-sgreen text-white w-full"
               onClick={() => recordSix()}
             >
               Next
@@ -332,14 +332,15 @@ const TrackSprint = () => {
           <div ref={sixthButtons} className="hidden">
             <button
               type="button"
-              className="p-3 text-gray-600 w-full"
+              className="px-10 py-3 text-gray-600 w-full"
               onClick={() => recordFive()}
             >
               Prev
             </button>
+
             <button
               type="submit"
-              className="p-3 bg-lightgreen text-white w-full rounded-lg"
+              className="px-10 py-3 bg-sgreen text-white w-full"
             >
               Submit
             </button>
