@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`checks if Home component renders correctly should render correctly 1`] = `
+<div
+  className="h-screen"
+>
+  <div
+    className="p-4 bg-sblue text-white font-sans w-full text-center"
+  >
+    <h1
+      className="text-2xl font-black"
+    >
+      Progress
+    </h1>
+  </div>
+  <section
+    className="bg-gray-300 bg-opacity-30 px-5 h-full space-y-8 pt-10"
+  >
+    <div
+      className="px-6"
+    >
+      <svg
+        className="CircularProgressbar "
+        data-test-id="CircularProgressbar"
+        style={Object {}}
+        viewBox="0 0 100 100"
+      >
+        <path
+          className="CircularProgressbar-trail"
+          d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+          fillOpacity={0}
+          strokeWidth={8}
+          style={
+            Object {
+              "stroke": "#d7d7d7",
+              "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+              "strokeDashoffset": "0px",
+            }
+          }
+        />
+        <path
+          className="CircularProgressbar-path"
+          d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+          fillOpacity={0}
+          strokeWidth={8}
+          style={
+            Object {
+              "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+              "strokeDashoffset": "289.02652413026095px",
+              "transitionDuration": "2s",
+            }
+          }
+        />
+        <text
+          className="CircularProgressbar-text"
+          style={
+            Object {
+              "fill": "#10b981",
+              "fontSize": "14px",
+            }
+          }
+          x={50}
+          y={50}
+        >
+           m
+        </text>
+      </svg>
+    </div>
+    <div
+      className="bg-white text-black w-full shadow-md flex flex-col items-center justify-center py-5"
+    >
+      <h2
+        className="text-xs text-gray-500"
+      >
+        Time Total
+      </h2>
+      <div
+        className="text-green-500 text-2xl font-mono"
+      >
+        :
+        :
+      </div>
+    </div>
+  </section>
+</div>
+`;

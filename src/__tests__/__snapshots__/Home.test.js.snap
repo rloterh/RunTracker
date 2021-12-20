@@ -1,0 +1,608 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`checks if Home component renders correctly should render correctly 1`] = `
+Array [
+  <main>
+    <div
+      className="text-center h-full"
+    >
+      <div
+        className="p-4 bg-sblue text-white font-sans w-full"
+      >
+        <h1
+          className="text-2xl font-black"
+        >
+          Record Sprint
+        </h1>
+      </div>
+      <div
+        className="p-4 border-b-2"
+      >
+        <div>
+          <h3
+            className="font-bold text-gray-600 font-sans"
+          >
+            What's your sprint target?
+          </h3>
+        </div>
+      </div>
+      <div
+        className="flex flex-col items-center justify-center space-y-4"
+      >
+        <div
+          className="flex flex-col items-center justify-center py-10 font-sans"
+        >
+          <section
+            className="hidden w-3/4"
+          >
+            <svg
+              className="CircularProgressbar "
+              data-test-id="CircularProgressbar"
+              style={Object {}}
+              viewBox="0 0 100 100"
+            >
+              <path
+                className="CircularProgressbar-trail"
+                d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+                fillOpacity={0}
+                strokeWidth={8}
+                style={
+                  Object {
+                    "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                    "strokeDashoffset": "0px",
+                  }
+                }
+              />
+              <path
+                className="CircularProgressbar-path"
+                d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+                fillOpacity={0}
+                strokeWidth={8}
+                style={
+                  Object {
+                    "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                    "strokeDashoffset": "289.02652413026095px",
+                  }
+                }
+              />
+              <text
+                className="CircularProgressbar-text"
+                style={Object {}}
+                x={50}
+                y={50}
+              >
+                0 h
+              </text>
+            </svg>
+          </section>
+          <section
+            className="hidden w-3/4"
+          >
+            <svg
+              className="CircularProgressbar "
+              data-test-id="CircularProgressbar"
+              style={Object {}}
+              viewBox="0 0 100 100"
+            >
+              <path
+                className="CircularProgressbar-trail"
+                d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+                fillOpacity={0}
+                strokeWidth={8}
+                style={
+                  Object {
+                    "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                    "strokeDashoffset": "0px",
+                  }
+                }
+              />
+              <path
+                className="CircularProgressbar-path"
+                d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+                fillOpacity={0}
+                strokeWidth={8}
+                style={
+                  Object {
+                    "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                    "strokeDashoffset": "289.02652413026095px",
+                  }
+                }
+              />
+              <text
+                className="CircularProgressbar-text"
+                style={Object {}}
+                x={50}
+                y={50}
+              >
+                0 mins
+              </text>
+            </svg>
+          </section>
+          <section
+            className="hidden w-3/4"
+          >
+            <svg
+              className="CircularProgressbar "
+              data-test-id="CircularProgressbar"
+              style={Object {}}
+              viewBox="0 0 100 100"
+            >
+              <path
+                className="CircularProgressbar-trail"
+                d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+                fillOpacity={0}
+                strokeWidth={8}
+                style={
+                  Object {
+                    "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                    "strokeDashoffset": "0px",
+                  }
+                }
+              />
+              <path
+                className="CircularProgressbar-path"
+                d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+                fillOpacity={0}
+                strokeWidth={8}
+                style={
+                  Object {
+                    "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                    "strokeDashoffset": "289.02652413026095px",
+                  }
+                }
+              />
+              <text
+                className="CircularProgressbar-text"
+                style={Object {}}
+                x={50}
+                y={50}
+              >
+                0 s
+              </text>
+            </svg>
+          </section>
+          <section
+            className="hidden w-3/4"
+          >
+            <svg
+              className="CircularProgressbar "
+              data-test-id="CircularProgressbar"
+              style={Object {}}
+              viewBox="0 0 100 100"
+            >
+              <path
+                className="CircularProgressbar-trail"
+                d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+                fillOpacity={0}
+                strokeWidth={8}
+                style={
+                  Object {
+                    "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                    "strokeDashoffset": "0px",
+                  }
+                }
+              />
+              <path
+                className="CircularProgressbar-path"
+                d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+                fillOpacity={0}
+                strokeWidth={8}
+                style={
+                  Object {
+                    "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                    "strokeDashoffset": "289.02652413026095px",
+                  }
+                }
+              />
+              <text
+                className="CircularProgressbar-text"
+                style={Object {}}
+                x={50}
+                y={50}
+              >
+                0 m
+              </text>
+            </svg>
+          </section>
+        </div>
+        <form
+          className="space-y-10 absolute bottom-20 font-sans"
+          onSubmit={[Function]}
+        >
+          <select
+            className="focus:outline-none w-full"
+            name="target"
+            onChange={[Function]}
+            size="2"
+            type="number"
+            value={100}
+          >
+            <option
+              value={100}
+            >
+              100
+               
+              metres
+               
+            </option>
+            <option
+              value={200}
+            >
+              200
+               
+              metres
+               
+            </option>
+            <option
+              value={500}
+            >
+              500
+               
+              metres
+               
+            </option>
+            <option
+              value={1000}
+            >
+              1000
+               
+              metres
+               
+            </option>
+            <option
+              value={2000}
+            >
+              2000
+               
+              metres
+               
+            </option>
+            <option
+              value={5000}
+            >
+              5000
+               
+              metres
+               
+            </option>
+          </select>
+          <input
+            className="hidden"
+            max="24"
+            min="0"
+            name="hours"
+            onChange={[Function]}
+            type="number"
+            value={0}
+          />
+          <input
+            className="hidden"
+            max="60"
+            min="0"
+            name="minutes"
+            onChange={[Function]}
+            placeholder="minutes"
+            type="number"
+            value={0}
+          />
+          <input
+            className="hidden"
+            max="60"
+            min="0"
+            name="seconds"
+            onChange={[Function]}
+            placeholder="seconds"
+            type="number"
+            value={0}
+          />
+          <input
+            className="hidden"
+            max="10000"
+            min="10"
+            name="distance"
+            onChange={[Function]}
+            placeholder="distance"
+            type="number"
+            value={0}
+          />
+          <textarea
+            className="hidden"
+            cols="20"
+            max="100"
+            min="2"
+            name="remarks"
+            onChange={[Function]}
+            placeholder="remarks"
+            required={true}
+            rows="6"
+            value=""
+          />
+          <input
+            className="hidden"
+            name="effort"
+            type="hidden"
+          />
+          <div
+            className="bg-gray-100 w-full"
+          >
+            <button
+              className="px-10 py-3 bg-sgreen text-white w-full"
+              onClick={[Function]}
+              type="button"
+            >
+              Next
+            </button>
+          </div>
+          <div
+            className="hidden"
+          >
+            <button
+              className="px-10 py-3 text-gray-600 w-full"
+              onClick={[Function]}
+              type="button"
+            >
+              Prev
+            </button>
+            <button
+              className="px-10 py-3 bg-sgreen text-white w-full"
+              onClick={[Function]}
+              type="button"
+            >
+              Next
+            </button>
+          </div>
+          <div
+            className="hidden"
+          >
+            <button
+              className="px-10 py-3 text-grey-600 w-full text-gray-600"
+              onClick={[Function]}
+              type="button"
+            >
+              Prev
+            </button>
+            <button
+              className="px-10 py-3 bg-sgreen text-white w-full"
+              onClick={[Function]}
+              type="button"
+            >
+              Next
+            </button>
+          </div>
+          <div
+            className="hidden"
+          >
+            <button
+              className="px-10 py-3 text-gray-600 w-full"
+              onClick={[Function]}
+              type="button"
+            >
+              Prev
+            </button>
+            <button
+              className="px-10 py-3 bg-sgreen text-white w-full"
+              onClick={[Function]}
+              type="button"
+            >
+              Next
+            </button>
+          </div>
+          <div
+            className="hidden"
+          >
+            <button
+              className="px-10 py-3 text-gray-600 w-full"
+              onClick={[Function]}
+              type="button"
+            >
+              Prev
+            </button>
+            <button
+              className="px-10 py-3 bg-sgreen text-white w-full"
+              onClick={[Function]}
+              type="button"
+            >
+              Next
+            </button>
+          </div>
+          <div
+            className="hidden"
+          >
+            <button
+              className="px-10 py-3 text-gray-600 w-full"
+              onClick={[Function]}
+              type="button"
+            >
+              Prev
+            </button>
+            <button
+              className="px-10 py-3 bg-sgreen text-white w-full"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>,
+  <footer
+    className="bg-footer bg-opacity-80 bottom-0 fixed w-full flex justify-between shadow-md border-t border-blue-900"
+  >
+    <div
+      className="border-r w-1/4 flex items-center justify-center py-3"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <svg
+          className="h-8"
+          fill="#fff"
+          height="24"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            x1="18"
+            x2="18"
+            y1="20"
+            y2="10"
+          />
+          <line
+            x1="12"
+            x2="12"
+            y1="20"
+            y2="4"
+          />
+          <line
+            x1="6"
+            x2="6"
+            y1="20"
+            y2="14"
+          />
+        </svg>
+      </a>
+    </div>
+    <div
+      className="w-1/4 flex items-center justify-center border-r"
+    >
+      <a
+        href="/feed"
+        onClick={[Function]}
+      >
+        <svg
+          className="h-8"
+          fill="none"
+          height="24"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polyline
+            points="23 6 13.5 15.5 8.5 10.5 1 18"
+          />
+          <polyline
+            points="17 6 23 6 23 12"
+          />
+        </svg>
+      </a>
+    </div>
+    <div
+      className="w-1/4 flex items-center justify-center border-r"
+    >
+      <a
+        href="/progress"
+        onClick={[Function]}
+      >
+        <svg
+          className="h-6"
+          fill="none"
+          height="24"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21.21 15.89A10 10 0 1 1 8 2.83"
+          />
+          <path
+            d="M22 12A10 10 0 0 0 12 2v10z"
+          />
+        </svg>
+      </a>
+    </div>
+    <div
+      className="w-1/4 flex items-center justify-center"
+    >
+      <a
+        href="/settings"
+        onClick={[Function]}
+      >
+        <svg
+          className="h-8"
+          fill="none"
+          height="24"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="1"
+          />
+          <circle
+            cx="19"
+            cy="12"
+            r="1"
+          />
+          <circle
+            cx="5"
+            cy="12"
+            r="1"
+          />
+        </svg>
+      </a>
+    </div>
+  </footer>,
+  ",",
+]
+`;
