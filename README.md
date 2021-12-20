@@ -109,7 +109,6 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 - [Design](https://www.behance.net/gallery/13271423/Bodytrackit-An-iOs-app-Branding-UX-and-UI) idea by [Grégoire Vella](https://www.behance.net/gregoirevella)
-- Cryptocurrency API by [Coinlore](https://api.coinlore.net/)
 - [Microverse](https://www.microverse.org/)
 
 
