@@ -20,7 +20,7 @@ const UpdateSprint = () => {
     const effortValue = ((distanceValue / targetValue) * 100);
 
     axios.put(
-      `http://localhost:3000/api/v1/sprints/${singleSprint[0].id}`,
+      `https://ancient-meadow-09395.herokuapp.com/api/v1/sprints/${singleSprint[0].id}`,
       {
         target: targetValue,
         hours: hoursValue,

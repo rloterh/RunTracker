@@ -23,7 +23,7 @@ const TrackSprint = () => {
     e.preventDefault();
     const effortValue = ((distanceValue / targetValue) * 100);
 
-    axios.post('http://localhost:3000/api/v1/sprints', {
+    axios.post('https://ancient-meadow-09395.herokuapp.com/api/v1/sprints', {
       target: targetValue,
       hours: hoursValue,
       minutes: minutesValue,
