@@ -140,7 +140,6 @@ const TrackSprint = () => {
     if (!regexMinutes.test(minutesValue)) {
       toast.error('Enter value between 0 - 60');
     } else {
-      console.log('minutes');
       recordFour();
     }
   };
