@@ -43,7 +43,6 @@ const TrackSprint = () => {
   const secondsInput = useRef(null);
   const distanceInput = useRef(null);
   const remarksInput = useRef(null);
-  const effortInput = useRef(null);
 
   const firstButtons = useRef(null);
   const secondButtons = useRef(null);
@@ -119,7 +118,6 @@ const TrackSprint = () => {
   const recordSix = () => {
     distanceInput.current.classList = 'hidden';
     remarksInput.current.classList = 'block focus:outline-none w-full';
-    effortInput.current.classList = 'hidden';
     fifthButtons.current.classList = 'hidden';
     sixthButtons.current.classList = 'flex bg-gray-100';
     distanceBar.current.classList = 'hidden';
@@ -127,7 +125,7 @@ const TrackSprint = () => {
   };
 
   const validateTwo = () => {
-    const regexHours = /\b([0-9]|[12][0-4])\b/;
+    const regexHours = /\b([0-9]|1[0-9]|2[0-4])\b/;
     if (!regexHours.test(hoursValue)) {
       toast.error('Enter value between 0 - 24');
     } else {
@@ -260,8 +258,6 @@ const TrackSprint = () => {
             ref={distanceInput}
             type="number"
             name="distance"
-            min="10"
-            max="10000"
             placeholder="distance"
             className="hidden"
             value={distanceValue}
@@ -277,14 +273,7 @@ const TrackSprint = () => {
             cols="20"
             rows="6"
             value={remarksValue}
-            required
             onChange={(e) => setRemarks(e.target.value)}
-          />
-          <input
-            ref={effortInput}
-            type="hidden"
-            name="effort"
-            className="hidden"
           />
 
           <div ref={firstButtons} className="bg-gray-100 w-full">
