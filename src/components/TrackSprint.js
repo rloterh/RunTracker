@@ -126,6 +126,42 @@ const TrackSprint = () => {
     setTitle('Remarks');
   };
 
+  const validateTwo = () => {
+    const regexHours = /\b([0-9]|[12][0-4])\b/;
+    if (!regexHours.test(hoursValue)) {
+      toast.error('Enter value between 0 - 24');
+    } else {
+      recordThree();
+    }
+  };
+
+  const validateThree = () => {
+    const regexMinutes = /\b([0-9]|[1-5][0-9]|60)\b/;
+    if (!regexMinutes.test(minutesValue)) {
+      toast.error('Enter value between 0 - 60');
+    } else {
+      recordFour();
+    }
+  };
+
+  const validateFour = () => {
+    const regexSeconds = /\b([0-9]|[1-5][0-9]|60)\b/;
+    if (!regexSeconds.test(secondsValue)) {
+      toast.error('Enter value between 0 - 60');
+    } else {
+      recordFive();
+    }
+  };
+
+  const validateFive = () => {
+    const regexDistiance = /\b([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9]|10000)\b/;
+    if (!regexDistiance.test(distanceValue)) {
+      toast.error('Enter value between 0 - 10k');
+    } else {
+      recordSix();
+    }
+  };
+
   return (
     <div className="text-center h-full">
       <div className="p-4 bg-sblue text-white font-sans w-full">
@@ -272,7 +308,7 @@ const TrackSprint = () => {
             <button
               type="button"
               className="px-10 py-3 bg-sgreen text-white w-full"
-              onClick={() => recordThree()}
+              onClick={() => validateTwo()}
             >
               Next
             </button>
@@ -289,7 +325,7 @@ const TrackSprint = () => {
             <button
               type="button"
               className="px-10 py-3 bg-sgreen text-white w-full"
-              onClick={() => recordFour()}
+              onClick={() => validateThree()}
             >
               Next
             </button>
@@ -306,7 +342,7 @@ const TrackSprint = () => {
             <button
               type="button"
               className="px-10 py-3 bg-sgreen text-white w-full"
-              onClick={() => recordFive()}
+              onClick={() => validateFour()}
             >
               Next
             </button>
@@ -323,7 +359,7 @@ const TrackSprint = () => {
             <button
               type="button"
               className="px-10 py-3 bg-sgreen text-white w-full"
-              onClick={() => recordSix()}
+              onClick={() => validateFive()}
             >
               Next
             </button>

@@ -7,7 +7,7 @@ export const logUserOut = () => ({ type: 'LOG_OUT' });
 
 export const getUser = (userInfo) => (dispatch) => {
   axios
-    .post('https://ancient-meadow-09395.herokuapp.com/api/v1/login', userInfo)
+    .post('http://localhost:3000/api/v1/login', userInfo)
     .then((response) => response)
     .then((data) => {
       if (data.data.error) return toast.error('Invalid user');
@@ -19,7 +19,7 @@ export const getUser = (userInfo) => (dispatch) => {
 
 export const signUserUp = (userInfo) => (dispatch) => {
   axios
-    .post('https://ancient-meadow-09395.herokuapp.com/api/v1/users', userInfo)
+    .post('http://localhost:3000/api/v1/users', userInfo)
     .then((response) => response)
     .then((data) => {
       localStorage.setItem('token', data.token);
@@ -35,7 +35,7 @@ export const fetchSprint = () => async (dispatch) => {
     dispatch({
       type: 'FETCH_SPRINT_REQUEST',
     });
-    const response = await axios.get('https://ancient-meadow-09395.herokuapp.com/api/v1/sprints');
+    const response = await axios.get('http://localhost:3000/api/v1/sprints');
 
     dispatch({
       type: 'FETCH_SPRINT_SUCCESS',

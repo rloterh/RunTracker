@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { Link } from 'react-router-dom';
 import dateFormat from 'dateformat';
-import { fetchsingleSprint } from '../actions';
+import { fetchsingleSprint, fetchSprint } from '../actions';
 
 const SprintList = () => {
   const sprints = useSelector((state) => state.sprint.data);
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchSprint());
+  }, []);
 
   return (
     <div className="h-full pb-16">
