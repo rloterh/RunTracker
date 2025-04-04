@@ -1,6 +1,4 @@
-# RunTracker - Frontend (A Microverse Full Stack Capstone project)
-
-![Microverse](https://img.shields.io/badge/-Microverse-007bff?style=for-the-badge)
+# RunTracker - Frontend
 
 ## Description
 Run Tracker is a tracking application for taking records of sprint efforts. A user sets a sprint target and subsequently records the sprint details and then determines if the goal is achieved. 
